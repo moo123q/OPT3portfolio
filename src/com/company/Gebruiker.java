@@ -32,11 +32,11 @@ public class Gebruiker {
         this.inkomen = inkomen;
     }
 
-    double percentageSpaardoel = inkomen * 0.4;
+
     public double berekenBetaalPercentage(){
 
 
-
+        double percentageSpaardoel = inkomen * 0.6;
         double betaalPercentage = 0;
 
         if (spaardoel.getSpaarBedrag() >= 0 && spaardoel.getSpaarBedrag() <= 10000){
