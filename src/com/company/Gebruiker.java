@@ -75,9 +75,9 @@ public class Gebruiker {
     }
 
     public void getGegevens() {
-        System.out.println("Wat is uw naam");
+        System.out.println("Wat is uw naam?");
         setName(scanner.nextLine());
-        System.out.println("Wat is uw Leeftijd");
+        System.out.println("Wat is uw Leeftijd?");
         setLeeftijd(scanner.nextInt());
         System.out.println("Wat is uw maandelijks inkomen in €");
         setInkomen(scanner.nextDouble());
