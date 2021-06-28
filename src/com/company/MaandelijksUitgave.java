@@ -1,11 +1,14 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class MaandelijksUitgave {
     private double huurPrijs;
     private double gasPrijs;
     private double waterPrijs;
     private double stroomPrijs;
     private double boodschappenPrijs;
+    Scanner scanner = new Scanner(System.in);
 
     public MaandelijksUitgave(){
 
@@ -54,5 +57,20 @@ public class MaandelijksUitgave {
 
     public void setBoodschappenPrijs(double boodschappenPrijs) {
         this.boodschappenPrijs = boodschappenPrijs;
+    }
+
+
+    public void getGeldGegevens() {
+
+        System.out.println("Wat betaalt u maandelijks aan huur?");
+        setHuurPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u maandelijks aan gas?");
+        setGasPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan stroom?");
+        setStroomPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan boodschappen?");
+        setBoodschappenPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan water?");
+        setWaterPrijs(scanner.nextDouble());
     }
 }

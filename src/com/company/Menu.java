@@ -7,7 +7,11 @@ public class Menu {
 
 
         bedragprocessor.gebruiker.getGegevens();
+        bedragprocessor.maandelijksuitgave.getGeldGegevens();
+        bedragprocessor.gebruiker.spaardoel.vraagSpaarbedrag();
         bedragprocessor.getBericht();
+        System.out.println(bedragprocessor.maandelijksuitgave.getHuurPrijs());
+
 
     }
 }

@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class BedragProcessor {
@@ -25,7 +26,8 @@ public class BedragProcessor {
     public void getBericht() {
 
         System.out.println("Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
-                "Het bedrag dat u moet Betalen is: €" + berekenBetaalBedrag());
+                "Het bedrag dat u moet Betalen is: €" + new DecimalFormat("##.##").format(berekenBetaalBedrag()));
 
+        System.out.println(maandelijksuitgave.berekenTotaleUitgave());
     }
 }

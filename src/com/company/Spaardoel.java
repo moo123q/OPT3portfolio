@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Spaardoel {
     private double spaarBedrag;
     private double gekozenMaandBedrag;
@@ -23,5 +25,12 @@ public class Spaardoel {
 
     public void setSpaarBedrag(double spaarBedrag) {
         this.spaarBedrag = spaarBedrag;
+    }
+
+    Scanner scanner = new Scanner(System.in);
+
+    public void vraagSpaarbedrag(){
+        System.out.println("Wat is uw spaardoel?");
+        setSpaarBedrag(scanner.nextDouble());
     }
 }
