@@ -3,10 +3,12 @@ package com.company;
 import java.util.Scanner;
 
 public class Spaardoel {
+    Scanner scanner = new Scanner(System.in);
     private double spaarBedrag;
-    private double gekozenMaandBedrag;
+    private double gekozenBedrag;
     private String spaarItem;
-
+    private String gekozenIncassoPeriode;
+    private int spaarDuur;
     public Spaardoel(){
 
     }
@@ -15,8 +17,8 @@ public class Spaardoel {
         return spaarBedrag;
     }
 
-    public double getGekozenMaandBedrag() {
-        return gekozenMaandBedrag;
+    public double getGekozenBedrag() {
+        return gekozenBedrag;
     }
 
     public String getSpaarItem() {
@@ -27,10 +29,35 @@ public class Spaardoel {
         this.spaarBedrag = spaarBedrag;
     }
 
-    Scanner scanner = new Scanner(System.in);
+    public void setGekozenBedrag(double gekozenBedrag) {
+        this.gekozenBedrag = gekozenBedrag;
+    }
 
-    public void vraagSpaarbedrag(){
+    public void setSpaarItem(String spaarItem) {
+        this.spaarItem = spaarItem;
+    }
+
+    public String getGekozenIncassoPeriode() {
+        return gekozenIncassoPeriode;
+    }
+
+    public void setGekozenIncassoPeriode(String gekozenIncassoPeriode) {
+        this.gekozenIncassoPeriode = gekozenIncassoPeriode;
+    }
+
+    public void vraagSpaardoel(){
+        System.out.println("Waar wilt u voor sparen?");
+        setSpaarItem(scanner.nextLine());
         System.out.println("Wat is uw spaardoel?");
         setSpaarBedrag(scanner.nextDouble());
     }
+
+
+    public int berekenSpaarDuur(){
+
+        spaarDuur = (int) Math.ceil( (spaarBedrag / gekozenBedrag));
+
+        return spaarDuur;
+    }
+
 }

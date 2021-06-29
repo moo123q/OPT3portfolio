@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class BedragProcessor {
     Scanner scanner = new Scanner(System.in);
+    Displayer displayer = Displayer.getInstance();
     MaandelijksUitgave maandelijksuitgave = new MaandelijksUitgave();
     Gebruiker gebruiker = new Gebruiker();
 
@@ -17,17 +18,21 @@ public class BedragProcessor {
 
     public double berekenBetaalBedrag() {
 
-        double betaalBedrag = (gebruiker.berekenBetaalPercentage() / 100);
+        double betaalBedrag = (gebruiker.berekenBetaalPercentage(gebruiker.getInkomen(), gebruiker.getLeeftijd()) / 100);
         betaalBedrag = betaalBedrag * gebruiker.spaardoel.getSpaarBedrag();
         return betaalBedrag;
 
     }
 
-    public void getBericht() {
+    String bericht;
 
-        System.out.println("Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
-                "Het bedrag dat u moet Betalen is: €" + new DecimalFormat("##.##").format(berekenBetaalBedrag()));
+    public String getBericht() {
 
-        System.out.println(maandelijksuitgave.berekenTotaleUitgave());
+        bericht = "Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
+                "Het bedrag dat u moet Betalen is: €" + new DecimalFormat("##.##").format(berekenBetaalBedrag());
+
+        return bericht;
     }
+
+
 }

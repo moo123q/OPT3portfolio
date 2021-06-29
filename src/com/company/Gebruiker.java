@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Gebruiker {
+public class Gebruiker{
 
 
     Scanner scanner = new Scanner(System.in);
@@ -33,23 +33,25 @@ public class Gebruiker {
     }
 
 
-    public double berekenBetaalPercentage(){
 
-
-        double percentageSpaardoel = inkomen * 0.6;
+    public double berekenBetaalPercentage(double inkomen, double leeftijd){
         double betaalPercentage = 0;
+        double percentageSpaardoel = inkomen * 0.6;
 
-        if (spaardoel.getSpaarBedrag() >= 0 && spaardoel.getSpaarBedrag() <= 10000){
+        double spaarBedrag = spaardoel.getSpaarBedrag();
+        double totaleUitgave = maandelijksuitgave.berekenTotaleUitgave();
+
+        if (spaarBedrag >= 0 && spaarBedrag <= 10000){
             betaalPercentage += 1;
         }
 
 
-        if (spaardoel.getSpaarBedrag() > 10000 && spaardoel.getSpaarBedrag() <= 100000){
+        if (spaarBedrag > 10000 && spaarBedrag <= 100000){
             betaalPercentage += 0.12;
         }
 
 
-        if (spaardoel.getSpaarBedrag() > 100000 ){
+        if (spaarBedrag > 100000 ){
             betaalPercentage += 0.015;
         }
 
@@ -66,7 +68,7 @@ public class Gebruiker {
         }
 
 
-        if (maandelijksuitgave.berekenTotaleUitgave() <= percentageSpaardoel){
+        if (totaleUitgave <= percentageSpaardoel){
 
 
             betaalPercentage += 0.1;
