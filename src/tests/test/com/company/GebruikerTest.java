@@ -1,8 +1,4 @@
 package com.company;
-
-import com.company.Gebruiker;
-import com.company.MaandelijksUitgave;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,39 +8,57 @@ class GebruikerTest {
     @Test
     void berekenBetaalPercentage1() {
 
-        MaandelijksUitgave maandelijksUitgave = new MaandelijksUitgave();
         Gebruiker gebruiker = new Gebruiker();
-        maandelijksUitgave.setBoodschappenPrijs(10);
-        maandelijksUitgave.setStroomPrijs(10);
-        maandelijksUitgave.setWaterPrijs(10);
-        maandelijksUitgave.setHuurPrijs(10);
-        gebruiker.spaardoel.setSpaarBedrag(300000);
-        assertEquals(0.115, gebruiker.berekenBetaalPercentage(2499, 18));
+        gebruiker.spaardoel.setSpaarBedrag(1);
+        assertEquals(1, gebruiker.berekenBetaalPercentage(2499, 18));
     }
 
     @Test
     void berekenBetaalPercentage2() {
 
-        MaandelijksUitgave maandelijksUitgave = new MaandelijksUitgave();
         Gebruiker gebruiker = new Gebruiker();
-        maandelijksUitgave.setBoodschappenPrijs(10);
-        maandelijksUitgave.setStroomPrijs(10);
-        maandelijksUitgave.setWaterPrijs(10);
-        maandelijksUitgave.setHuurPrijs(10);
         gebruiker.spaardoel.setSpaarBedrag(1);
-        assertEquals(1.1, gebruiker.berekenBetaalPercentage(2499, 18));
+        assertEquals(0, gebruiker.berekenBetaalPercentage(2499, 17));
     }
 
     @Test
     void berekenBetaalPercentage3() {
 
-        MaandelijksUitgave maandelijksUitgave = new MaandelijksUitgave();
         Gebruiker gebruiker = new Gebruiker();
-        maandelijksUitgave.setBoodschappenPrijs(10);
-        maandelijksUitgave.setStroomPrijs(10);
-        maandelijksUitgave.setWaterPrijs(10);
-        maandelijksUitgave.setHuurPrijs(10);
-        gebruiker.spaardoel.setSpaarBedrag(15000);
-        assertEquals(0.32, gebruiker.berekenBetaalPercentage(2500, 18));
+        gebruiker.spaardoel.setSpaarBedrag(1);
+        assertEquals(1.1, gebruiker.berekenBetaalPercentage(2500, 18));
+    }
+
+    @Test
+    void berekenBetaalPercentage4() {
+
+        Gebruiker gebruiker = new Gebruiker();
+        gebruiker.spaardoel.setSpaarBedrag(1);
+        assertEquals(1.02, gebruiker.berekenBetaalPercentage(5000, 18));
+
+    }
+
+    @Test
+    void berekenBetaalPercentage5() {
+
+        Gebruiker gebruiker = new Gebruiker();
+        gebruiker.spaardoel.setSpaarBedrag(100001);
+        assertEquals(0.015, gebruiker.berekenBetaalPercentage(1, 18));
+    }
+
+    @Test
+    void berekenBetaalPercentage6() {
+
+        Gebruiker gebruiker = new Gebruiker();
+        gebruiker.spaardoel.setSpaarBedrag(10001);
+        assertEquals(0.12, gebruiker.berekenBetaalPercentage(1, 18));
+    }
+
+    @Test
+    void berekenBetaalPercentage7() {
+
+        Gebruiker gebruiker = new Gebruiker();
+        gebruiker.spaardoel.setSpaarBedrag(10000);
+        assertEquals(1, gebruiker.berekenBetaalPercentage(1, 18));
     }
 }

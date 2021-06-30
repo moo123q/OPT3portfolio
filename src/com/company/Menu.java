@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
-
     BedragProcessor bedragprocessor = new BedragProcessor();
     public void startApplication() {
 
@@ -46,6 +45,6 @@ public class Menu {
             System.out.println("U wilt meer aan de kant zetten dan wat u maandelijks overhoudt! probeer het opnieuw.");
             bedragprocessor.gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
         }
-        System.out.println("Uw spaardoel wordt behaald over " + bedragprocessor.gebruiker.spaardoel.berekenSpaarDuur() + " maanden");
+        System.out.println("Uw spaardoel wordt behaald over " + bedragprocessor.gebruiker.spaardoel.berekenSpaarDuur() + " maand(en)");
     }
 }

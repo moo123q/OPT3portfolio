@@ -1,10 +1,8 @@
 package com.company;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class BedragProcessor {
-    Scanner scanner = new Scanner(System.in);
     Displayer displayer = Displayer.getInstance();
     MaandelijksUitgave maandelijksuitgave = new MaandelijksUitgave();
     Gebruiker gebruiker = new Gebruiker();
