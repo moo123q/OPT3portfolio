@@ -82,7 +82,6 @@ public class Gebruiker{
         setLeeftijd(scanner.nextInt());
         System.out.println("Wat is uw inkomen?");
         setInkomen(scanner.nextDouble());
-        System.out.println(getInkomen());
     }
 
     public void setLeeftijd(Integer leeftijd) {

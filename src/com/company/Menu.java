@@ -31,9 +31,6 @@ public class Menu {
 
 
         if(account.equals("prive")){
-            System.out.println(bedragprocessor.gebruiker.getName() + "\n" +
-                    bedragprocessor.gebruiker.getLeeftijd() + '\n' +
-                    bedragprocessor.gebruiker.getInkomen());
             AccountGenerator priveAccount = new PriveAccount();
             priveAccount.createAccount();
         }
@@ -43,7 +40,6 @@ public class Menu {
             businessAccount.createAccount();
         }
 
-        System.out.println(bedragprocessor.gebruiker.getName() + "\n" + bedragprocessor.gebruiker.getInkomen());
         System.out.println("Hoeveel wilt u maandelijks sparen?");
         bedragprocessor.gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
 
