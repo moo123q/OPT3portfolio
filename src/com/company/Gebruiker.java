@@ -33,8 +33,7 @@ public class Gebruiker{
     }
 
 
-
-    public double berekenBetaalPercentage(double inkomen, double leeftijd){
+        public double berekenBetaalPercentage(double inkomen, double leeftijd){
         double betaalPercentage = 0;
         double percentageSpaardoel = inkomen * 0.6;
 
@@ -83,6 +82,7 @@ public class Gebruiker{
         setLeeftijd(scanner.nextInt());
         System.out.println("Wat is uw inkomen?");
         setInkomen(scanner.nextDouble());
+        System.out.println(getInkomen());
     }
 
     public void setLeeftijd(Integer leeftijd) {

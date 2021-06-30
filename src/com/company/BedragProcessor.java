@@ -24,11 +24,10 @@ public class BedragProcessor {
 
     }
 
-    String bericht;
 
     public String getBericht() {
 
-        bericht = "Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
+        String bericht = "Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
                 "Het bedrag dat u moet Betalen is: €" + new DecimalFormat("##.##").format(berekenBetaalBedrag());
 
         return bericht;
