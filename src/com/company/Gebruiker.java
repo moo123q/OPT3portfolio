@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Gebruiker{
@@ -34,11 +35,12 @@ public class Gebruiker{
 
 
         public double berekenBetaalPercentage(double inkomen, double leeftijd){
-        double betaalPercentage = 0;
-        double percentageSpaardoel = inkomen * 0.6;
 
         double spaarBedrag = spaardoel.getSpaarBedrag();
         double totaleUitgave = maandelijksuitgave.berekenTotaleUitgave();
+
+        double betaalPercentage = 0;
+        double percentageSpaardoel = inkomen * 0.6;
 
         if (spaarBedrag >= 0 && spaarBedrag <= 10000){
             betaalPercentage += 1;
