@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Gebruiker;
+import com.company.MaandelijksUitgave;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
