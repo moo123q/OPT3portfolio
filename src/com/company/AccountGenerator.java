@@ -4,32 +4,25 @@ import java.util.Scanner;
 
 public abstract class AccountGenerator{
     Scanner scanner = new Scanner(System.in);
-    Gebruiker gebruiker = new Gebruiker();
 
-    public void VeriefierIdentificatiegegevens(){
+    public void VerifierIdentificatiegegevens(){
         System.out.println("identificatiegegevens controleren");
     }
 
-    public void verifyApplicationDetails(){
+    public void verifierAccDetails(){
         System.out.println("Verifier je accountdetails");
     }
 
 
-    public void ontvangenBetaling(double betaling){
-        System.out.println("betaling ontvangen");
-    }
+    public abstract void ontvangenBetaling(double betaling);
+    public abstract void generateAccountNummer();
+    public abstract void bevestiging();
 
-    public abstract void generateAccountNumber();
-
-     abstract void getBsnNummer();
-     abstract void getKvkNummer();
-
-    public void createAccount(){
-        this.VeriefierIdentificatiegegevens();
-        this.verifyApplicationDetails();
-        this.getBsnNummer();
-        this.getKvkNummer();
+    public void maakAccount(){
+        this.VerifierIdentificatiegegevens();
+        this.verifierAccDetails();
         this.ontvangenBetaling(10);
-        this.generateAccountNumber();
+        this.bevestiging();
+        this.generateAccountNummer();
     }
 }

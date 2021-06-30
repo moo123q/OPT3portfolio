@@ -7,7 +7,6 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
 
     BedragProcessor bedragprocessor = new BedragProcessor();
-    Displayer displayer = Displayer.getInstance();
     public void startApplication() {
 
         bedragprocessor.gebruiker.getGegevens();
@@ -31,13 +30,13 @@ public class Menu {
 
 
         if(account.equals("prive")){
-            AccountGenerator priveAccount = new PriveAccount();
-            priveAccount.createAccount();
+            PriveAccount priveAccount = new PriveAccount();
+            priveAccount.maakAccount();
         }
 
         else{
-            AccountGenerator businessAccount = new BusinessAccount();
-            businessAccount.createAccount();
+            BusinessAccount businessAccount = new BusinessAccount();
+            businessAccount.maakAccount();
         }
 
         System.out.println("Hoeveel wilt u maandelijks sparen?");

@@ -7,7 +7,6 @@ public class Spaardoel {
     private double spaarBedrag;
     private double gekozenBedrag;
     private String spaarItem;
-    private String gekozenIncassoPeriode;
     private int spaarDuur;
     public Spaardoel(){
 
@@ -37,13 +36,6 @@ public class Spaardoel {
         this.spaarItem = spaarItem;
     }
 
-    public String getGekozenIncassoPeriode() {
-        return gekozenIncassoPeriode;
-    }
-
-    public void setGekozenIncassoPeriode(String gekozenIncassoPeriode) {
-        this.gekozenIncassoPeriode = gekozenIncassoPeriode;
-    }
 
     public void vraagSpaardoel(){
         System.out.println("Waar wilt u voor sparen?");

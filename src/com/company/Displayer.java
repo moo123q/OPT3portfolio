@@ -10,6 +10,10 @@ public class Displayer {
     }
     public static Displayer getInstance(){
 
+        if(displayer == null){
+            displayer = new Displayer();
+        }
+
         return displayer;
 
     }
