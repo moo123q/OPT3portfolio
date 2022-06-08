@@ -1,25 +1,38 @@
 package com.company;
 
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
-    BedragProcessor bedragprocessor = new BedragProcessor();
+    private Gebruiker gebruiker;
+
+
+    public void gebruikerAanmaken() {
+        gebruiker = new Gebruiker("", 0,0);
+        System.out.println("Wat is uw naam?");
+        gebruiker.setName(scanner.nextLine());
+        System.out.println("Wat is uw Leeftijd?");
+        gebruiker.setLeeftijd(scanner.nextInt());
+        System.out.println("Wat is uw inkomen?");
+        gebruiker.setInkomen(scanner.nextDouble());
+
+    }
+
     public void startApplication() {
 
-        bedragprocessor.gebruiker.getGegevens();
+        gebruikerAanmaken();
+        BedragProcessor bedragprocessor = new BedragProcessor(gebruiker);
+        System.out.println(gebruiker.getName());
+        gebruiker.spaardoel.vraagSpaardoel();
         System.out.println("Wilt u weten wat u maandelijks overhoudt?");
+        scanner.nextLine();
+
         String antwoord = scanner.nextLine();
 
-
-        if (antwoord.equals("nee")) {
-            bedragprocessor.gebruiker.spaardoel.vraagSpaardoel();
-        }
-
-        else {
-            bedragprocessor.maandelijksuitgave.getVasteLastenGegevens();
-            bedragprocessor.gebruiker.spaardoel.vraagSpaardoel();
+        if(antwoord.toLowerCase().equals("ja")) {
+            gebruiker.getMaandelijksuitgave().getVasteLastenGegevens();
             bedragprocessor.displayer.display(bedragprocessor.getBericht());
         }
 
@@ -39,12 +52,15 @@ public class Menu {
         }
 
         System.out.println("Hoeveel wilt u maandelijks sparen?");
-        bedragprocessor.gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
 
-        while (bedragprocessor.gebruiker.spaardoel.getGekozenBedrag() > bedragprocessor.berekenOvergeblevenBedrag()){
-            System.out.println("U wilt meer aan de kant zetten dan wat u maandelijks overhoudt! probeer het opnieuw.");
-            bedragprocessor.gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
+        while (true){
+            gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
+            if(gebruiker.spaardoel.getGekozenBedrag() > bedragprocessor.berekenOvergeblevenBedrag()){
+                System.out.println("U wilt meer aan de kant zetten dan wat u maandelijks overhoudt! probeer het opnieuw.");
+            }else
+                break;
+
         }
-        System.out.println("Uw spaardoel wordt behaald over " + bedragprocessor.gebruiker.spaardoel.berekenSpaarDuur() + " maand(en)");
+        System.out.println("Uw spaardoel wordt behaald over " + gebruiker.spaardoel.berekenSpaarDuur() + " maand(en)");
     }
 }
