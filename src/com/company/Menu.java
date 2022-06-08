@@ -24,7 +24,6 @@ public class Menu {
 
         gebruikerAanmaken();
         BedragProcessor bedragprocessor = new BedragProcessor(gebruiker);
-        System.out.println(gebruiker.getName());
         gebruiker.spaardoel.vraagSpaardoel();
         System.out.println("Wilt u weten wat u maandelijks overhoudt?");
         scanner.nextLine();
@@ -41,7 +40,7 @@ public class Menu {
         String account = scanner.nextLine();
 
 
-        if(account.equals("prive")){
+        if(account.toLowerCase().equals("prive")){
             PriveAccount priveAccount = new PriveAccount();
             priveAccount.maakAccount();
         }
