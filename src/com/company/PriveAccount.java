@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Scanner;
+
 public class PriveAccount extends AccountGenerator{
     private int BsnNummer;
 
@@ -11,21 +13,15 @@ public class PriveAccount extends AccountGenerator{
     }
 
     @Override
-    public void generateAccountNummer() {
-        System.out.println("Private Account Number generated");
-        getBsnNummer();
+    public void generateAccountNummer(Scanner scanner) {
+        System.out.println("wat is uw BSN nummer?");
+        BsnNummer = super.getNummer(scanner);
+        System.out.println("Private Account Number = " + BsnNummer);
     }
 
     @Override
     public void bevestiging() {
         System.out.println("Uw prive-account is aangemaakt");
     }
-
-
-    public void getBsnNummer(){
-        System.out.println("wat is uw BSN nummer?");
-        BsnNummer = scanner.nextInt();
-    }
-
 
 }

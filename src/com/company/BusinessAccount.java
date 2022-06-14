@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class BusinessAccount extends AccountGenerator{
     private int KvkNummer;
 
@@ -9,9 +11,10 @@ public class BusinessAccount extends AccountGenerator{
     }
 
     @Override
-    public void generateAccountNummer() {
-        System.out.println("Business Account number generated");
-        getKvkNummer();
+    public void generateAccountNummer(Scanner scanner) {
+        System.out.println("wat is uw Kvk nummer?");
+        KvkNummer = super.getNummer(scanner);
+        System.out.println("Business Account number = " + KvkNummer);
     }
 
     @Override
@@ -19,9 +22,4 @@ public class BusinessAccount extends AccountGenerator{
         System.out.println("Uw business-account is aangemaakt");
     }
 
-
-    public void getKvkNummer() {
-        System.out.println("wat is uw Kvk nummer?");
-        KvkNummer = scanner.nextInt();
-    }
 }

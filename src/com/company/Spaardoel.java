@@ -3,7 +3,6 @@ package com.company;
 import java.util.Scanner;
 
 public class Spaardoel {
-    Scanner scanner = new Scanner(System.in);
     private double spaarBedrag;
     private double gekozenBedrag;
     private String spaarItem;
@@ -36,13 +35,6 @@ public class Spaardoel {
         this.spaarItem = spaarItem;
     }
 
-
-    public void vraagSpaardoel(){
-        System.out.println("Waar wilt u voor sparen?");
-        setSpaarItem(scanner.nextLine());
-        System.out.println("Wat is uw spaardoel?");
-        setSpaarBedrag(scanner.nextDouble());
-    }
 
 
     public int berekenSpaarDuur(){

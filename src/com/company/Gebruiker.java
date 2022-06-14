@@ -1,9 +1,7 @@
 package com.company;
 
-import java.util.Scanner;
 
 public class Gebruiker{
-    Scanner scanner = new Scanner(System.in);
     Spaardoel spaardoel = new Spaardoel();
 
     private String name;

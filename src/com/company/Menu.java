@@ -1,12 +1,10 @@
 package com.company;
 
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
-    Scanner scanner = new Scanner(System.in);
     private Gebruiker gebruiker;
+    private Scanner scanner = new Scanner(System.in);
 
 
     public void gebruikerAanmaken() {
@@ -20,18 +18,42 @@ public class Menu {
 
     }
 
+    public void getVasteLastenGegevens() {
+
+        MaandelijksUitgave maandelijksUitgave = gebruiker.getMaandelijksuitgave();
+
+        System.out.println("Wat betaalt u maandelijks aan huur?");
+        maandelijksUitgave.setHuurPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan stroom?");
+        maandelijksUitgave.setStroomPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan boodschappen?");
+        maandelijksUitgave.setBoodschappenPrijs(scanner.nextDouble());
+        System.out.println("Wat betaalt u aan maandelijks aan water?");
+        maandelijksUitgave.setWaterPrijs(scanner.nextDouble());
+    }
+
+    public void vraagSpaardoel(){
+        Spaardoel spaardoel = gebruiker.spaardoel;
+        System.out.println("Waar wilt u voor sparen?");
+        spaardoel.setSpaarItem(scanner.nextLine());
+        System.out.println("Wat is uw spaardoel?");
+        spaardoel.setSpaarBedrag(scanner.nextDouble());
+    }
+
     public void startApplication() {
 
         gebruikerAanmaken();
         BedragProcessor bedragprocessor = new BedragProcessor(gebruiker);
-        gebruiker.spaardoel.vraagSpaardoel();
+//        gebruiker.spaardoel.vraagSpaardoel(scanner);
+        vraagSpaardoel();
         System.out.println("Wilt u weten wat u maandelijks overhoudt?");
         scanner.nextLine();
 
         String antwoord = scanner.nextLine();
 
         if(antwoord.toLowerCase().equals("ja")) {
-            gebruiker.getMaandelijksuitgave().getVasteLastenGegevens();
+//            gebruiker.getMaandelijksuitgave().getVasteLastenGegevens(scanner);
+            getVasteLastenGegevens();
             bedragprocessor.displayer.display(bedragprocessor.getBericht());
         }
 
@@ -42,12 +64,12 @@ public class Menu {
 
         if(account.toLowerCase().equals("prive")){
             PriveAccount priveAccount = new PriveAccount();
-            priveAccount.maakAccount();
+            priveAccount.maakAccount(scanner);
         }
 
         else{
             BusinessAccount businessAccount = new BusinessAccount();
-            businessAccount.maakAccount();
+            businessAccount.maakAccount(scanner);
         }
 
         System.out.println("Hoeveel wilt u maandelijks sparen?");
@@ -58,8 +80,8 @@ public class Menu {
                 System.out.println("U wilt meer aan de kant zetten dan wat u maandelijks overhoudt! probeer het opnieuw.");
             }else
                 break;
-
         }
+        scanner.close();
         System.out.println("Uw spaardoel wordt behaald over " + gebruiker.spaardoel.berekenSpaarDuur() + " maand(en)");
     }
 }

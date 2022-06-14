@@ -13,9 +13,7 @@ public class BedragProcessor {
 
     public double berekenOvergeblevenBedrag() {
 
-        double overgeblevenBedrag = gebruiker.getInkomen() - gebruiker.getMaandelijksuitgave().berekenTotaleUitgave();
-
-        return overgeblevenBedrag;
+        return gebruiker.getInkomen() - gebruiker.getMaandelijksuitgave().berekenTotaleUitgave();
     }
 
     public double berekenBetaalBedrag() {
@@ -27,39 +25,44 @@ public class BedragProcessor {
     }
 
     public double berekenBetaalPercentage(double inkomen, double leeftijd){
-
-        double spaarBedrag = gebruiker.spaardoel.getSpaarBedrag();
-
         double betaalPercentage = 0;
 
-        if (spaarBedrag >= 0 && spaarBedrag <= 10000){
-            betaalPercentage += 1;
-        }else if (spaarBedrag > 10000 && spaarBedrag <= 100000){
-            betaalPercentage += 0.12;
-        } else {
-            betaalPercentage += 0.015;
+        if (leeftijd >= 18){
+            betaalPercentage += controleerSpaarBedrag();
         }
 
-        if (leeftijd < 18){
-            betaalPercentage = 0;
-        }
-
-        if (inkomen >= 2500 && inkomen < 5000){
-            betaalPercentage += 0.1;
-        } else if(inkomen >= 5000){
-            betaalPercentage += 0.02;
-        }
+        betaalPercentage += controleerInkomen(inkomen);
 
         return betaalPercentage;
+    }
+
+    private double controleerSpaarBedrag(){
+        double spaarBedrag = gebruiker.spaardoel.getSpaarBedrag();
+
+        if (spaarBedrag >= 0 && spaarBedrag <= 10000){
+            return  1;
+        }else if (spaarBedrag > 10000 && spaarBedrag <= 100000){
+            return  0.12;
+        }
+            return  0.015;
+    }
+
+    private double controleerInkomen(double inkomen){
+        if (inkomen >= 2500 && inkomen < 5000){
+            return  0.1;
+        } else if(inkomen >= 5000){
+            return  0.02;
+        }
+        return 0;
     }
 
 
     public String getBericht() {
 
-        String bericht = "Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
+        return "Na het betalen van uw maanduitgave, behoudt u €" + berekenOvergeblevenBedrag() + " voor uwzelf\n" +
                 "Het bedrag dat u moet Betalen is: €" + new DecimalFormat("##.##").format(berekenBetaalBedrag());
 
-        return bericht;
+
     }
 
 
