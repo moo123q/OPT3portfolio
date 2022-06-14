@@ -2,19 +2,21 @@ package com.company;
 
 
 public class Gebruiker{
-    Spaardoel spaardoel = new Spaardoel();
+
 
     private String name;
     private Integer leeftijd ;
     private double inkomen ;
 
     private MaandelijksUitgave maandelijksuitgave;
+    private Spaardoel spaardoel;
 
     public Gebruiker(String name, double inkomen, Integer leeftijd){
         this.name = name;
         this.inkomen= inkomen;
         this.leeftijd = leeftijd;
         this.maandelijksuitgave = new MaandelijksUitgave();
+        this.spaardoel = new Spaardoel();
     }
 
     public String getName() {
@@ -48,5 +50,13 @@ public class Gebruiker{
 
     public void setMaandelijksuitgave(MaandelijksUitgave maandelijksuitgave) {
         this.maandelijksuitgave = maandelijksuitgave;
+    }
+
+    public Spaardoel getSpaardoel() {
+        return spaardoel;
+    }
+
+    public void setSpaardoel(Spaardoel spaardoel) {
+        this.spaardoel = spaardoel;
     }
 }

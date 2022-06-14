@@ -19,7 +19,7 @@ public class BedragProcessor {
     public double berekenBetaalBedrag() {
 
         double betaalBedrag = (berekenBetaalPercentage(gebruiker.getInkomen(), gebruiker.getLeeftijd()) / 100);
-        betaalBedrag = betaalBedrag * gebruiker.spaardoel.getSpaarBedrag();
+        betaalBedrag = betaalBedrag * gebruiker.getSpaardoel().getSpaarBedrag();
         return betaalBedrag;
 
     }
@@ -37,7 +37,7 @@ public class BedragProcessor {
     }
 
     private double controleerSpaarBedrag(){
-        double spaarBedrag = gebruiker.spaardoel.getSpaarBedrag();
+        double spaarBedrag = gebruiker.getSpaardoel().getSpaarBedrag();
 
         if (spaarBedrag >= 0 && spaarBedrag <= 10000){
             return  1;

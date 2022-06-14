@@ -35,7 +35,7 @@ public class Menu {
     }
 
     public void vraagSpaardoel(){
-        Spaardoel spaardoel = gebruiker.spaardoel;
+        Spaardoel spaardoel = gebruiker.getSpaardoel();
 
             System.out.println("Waar wilt u voor sparen?");
             spaardoel.setSpaarItem(scanner.nextLine());
@@ -74,14 +74,14 @@ public class Menu {
 
 
     while (true) {
-        gebruiker.spaardoel.setGekozenBedrag(scanner.nextDouble());
-        if (gebruiker.spaardoel.getGekozenBedrag() > bedragprocessor.berekenOvergeblevenBedrag()) {
+        gebruiker.getSpaardoel().setGekozenBedrag(scanner.nextDouble());
+        if (gebruiker.getSpaardoel().getGekozenBedrag() > bedragprocessor.berekenOvergeblevenBedrag()) {
             System.out.println("U wilt meer aan de kant zetten dan wat u maandelijks overhoudt! probeer het opnieuw.");
         } else
             break;
     }
 
         scanner.close();
-        System.out.println("Uw spaardoel wordt behaald over " + gebruiker.spaardoel.berekenSpaarDuur() + " maand(en)");
+        System.out.println("Uw spaardoel wordt behaald over " + gebruiker.getSpaardoel().berekenSpaarDuur() + " maand(en)");
     }
 }
